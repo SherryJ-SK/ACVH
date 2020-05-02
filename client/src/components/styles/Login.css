@@ -1,0 +1,23 @@
+#loginSection {
+    font-family: 'Nunito', sans-serif;
+}
+
+.nookImage {
+    width: 600px;
+    margin: 10rem 18rem;
+}
+
+.loginFormSection {
+    margin-top: 17rem;
+    margin-left: -4rem;
+    background-color: #80C687;
+    margin-bottom: 18rem;
+    padding: 2rem;
+    border-radius: 1rem;
+    border: dashed #FEBA63 8px;
+}
+
+.tommyImage {
+    width: 500px;
+    margin: 18rem 18rem;
+}

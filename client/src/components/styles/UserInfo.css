@@ -1,0 +1,17 @@
+.avatarGroup {
+    width: 80px;
+    border-radius: 20px;
+    margin: 10px;
+}
+
+#newUserForm {
+    width: 33.33%;
+    background-color: #80C687;
+    border-radius: 2rem;
+    border: dotted #FEBA63 8px;
+    font-family: 'Nunito', sans-serif;
+    padding: 1rem;
+    margin-left: 33.33%;
+    margin-top: 10%;
+}
+

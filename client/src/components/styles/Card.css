@@ -1,0 +1,44 @@
+.card {
+    margin-left: 2rem;
+    margin-right: 2rem;
+    font-family: 'Nunito', sans-serif;
+}
+
+.card-img-top {
+    width: 35%;
+    margin-left: 4rem;
+}
+
+.card-title {
+    font-weight: bold;
+    font-size: larger;
+}
+
+#Male {
+    color: #5099BC;
+}
+
+#Female {
+    color: #FEBA63;
+}
+
+.likeBtn {
+    background-color: #EACBD1;
+    border-color: #EACBD1;
+    color: white;
+    width: 40px;
+    height: 35px;
+    border-radius: 20px;
+}
+
+
+.likeBtn:hover {
+    background-color: #e85a77;
+    border-color: #e85a77;
+}
+
+.likeBtn:active {
+    background-color: #e85a77;
+    border-color: #e85a77;
+}
+

@@ -1,0 +1,33 @@
+.headerName {
+    font-size: 3rem;
+    text-align: center;
+    padding: 1.4rem 0 1rem 8rem;
+}
+
+.headerDiv {
+    background-color: #285960;
+    color:#FEBA63;
+    font-family: 'Nunito', sans-serif;
+    width: 100%;
+}
+
+#content {
+    background-color: #285960;
+    color:#FEBA63;
+    font-family: 'Nunito', sans-serif;
+    /* position: absolute;
+    margin-left: 15.6rem;
+    margin-top: -47.9rem;
+    width: 82.5%;
+    height: 20%; */
+    z-index: -1;
+}
+
+.timeSection {
+    padding-top: 1.5rem;
+    font-size: 1.4rem;
+}
+
+.row {
+    margin-right: 0;
+}

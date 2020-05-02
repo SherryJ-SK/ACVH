@@ -1,0 +1,62 @@
+[
+    {
+        "data_id": 1,
+        "imageSrc": "assets/images/cat.jpg",
+        "imageAlt": "cat"
+    },
+    {
+        "data_id": 2,
+        "imageSrc": "assets/images/rabbit.jpg",
+        "imageAlt": "rabbit"
+    },
+    {
+        "data_id": 3,
+        "imageSrc": "assets/images/octoper.png",
+        "imageAlt": "octoper"
+    },
+    {
+        "data_id": 4,
+        "imageSrc": "assets/images/hamu.png",
+        "imageAlt": "hamu"
+    },
+    {
+        "data_id": 5,
+        "imageSrc": "assets/images/tommy.png",
+        "imageAlt": "tommy"
+    },
+    {
+        "data_id": 6,
+        "imageSrc": "assets/images/sheep.png",
+        "imageAlt": "sheep"
+    },
+    {
+        "data_id": 7,
+        "imageSrc": "assets/images/fla.png",
+        "imageAlt": "fla"
+    },
+    {
+        "data_id": 8,
+        "imageSrc": "assets/images/wolf.jpg",
+        "imageAlt": "wolf"
+    },
+    {
+        "data_id": 9,
+        "imageSrc": "assets/images/ranran.jpeg",
+        "imageAlt": "ranran"
+    },
+    {
+        "data_id": 10,
+        "imageSrc": "assets/images/egle.png",
+        "imageAlt": "egle"
+    },
+    {
+        "data_id": 11,
+        "imageSrc": "assets/images/pg.png",
+        "imageAlt": "pg"
+    },
+    {
+        "data_id": 12,
+        "imageSrc": "assets/images/frog.jpg",
+        "imageAlt": "frog"
+    }
+]

@@ -5,7 +5,7 @@ import UserAvatar from "../UserAvatar/UserAvatar";
 import "../styles/UserInfo.css";
 import avatarJSON from "../../utils/avatar.json";
 import API from "../../utils/API";
-import { loggedIn } from "../../utils/actions";
+import { signedIn } from "../../utils/actions";
 import { useStoreContext } from "../../utils/GlobalState";
 
 function UserInfo() {
@@ -57,11 +57,11 @@ function UserInfo() {
                 })
                 .then(res => console.log(res.data))
                 .then(() => {
-                    dispatch({
-                        type: loggedIn,
-                        name: name,
-                        avatar: selectedAva,
-                    });
+                    // dispatch({
+                    //     type: signedIn,
+                    //     name: name,
+                    //     avatar: selectedAva,
+                    // });
                     history.push("/home/" + id);
                 })
                 .catch(err => console.log(err))

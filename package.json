@@ -3,10 +3,6 @@
   "version": "1.0.0",
   "description": "Animal Crossing villager handbook",
   "main": "server.js",
-  "engines": {
-    "node": "10.16.3",
-    "npm": "6.9.0"
-  },
   "scripts": {
     "start": "if-env NODE_ENV=production && npm run start:prod || npm run start:dev",
     "start:prod": "node server.js",
@@ -21,14 +17,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/SherryJ-SK/villagerHandbook.git"
+    "url": "git+https://github.com/SherryJ-SK/ACVH.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/SherryJ-SK/villagerHandbook/issues"
+    "url": "https://github.com/SherryJ-SK/ACVH/issues"
   },
-  "homepage": "https://github.com/SherryJ-SK/villagerHandbook#readme",
+  "homepage": "https://github.com/SherryJ-SK/ACVH#readme",
   "dependencies": {
     "axios": "^0.19.2",
     "bcryptjs": "^2.4.3",
@@ -48,6 +44,7 @@
     "react-bootstrap": "^1.0.1",
     "react-icons": "^3.10.0",
     "react-redux": "^7.2.0",
+    "react-router-dom": "^5.1.2",
     "redux": "^4.0.5"
   }
 }

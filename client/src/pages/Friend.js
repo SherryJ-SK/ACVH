@@ -1,8 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Form, Button } from "react-bootstrap";
 import API from "../utils/API";
 import { useStoreContext } from "../utils/GlobalState";
-import List from "../components/List/List";
 import { updateUser } from "../utils/actions";
 
 function Friend() {
@@ -14,6 +13,10 @@ function Friend() {
 
     const [state, dispatch] = useStoreContext();
     const id = state.map((item) => { return item.db_ID });
+
+    useEffect(() => {
+        foundMyFriend()
+    },[]);
 
     function checkEmailSubmit(event) {
         event.preventDefault();
@@ -74,6 +77,7 @@ function Friend() {
                 }
             })
             .then(res => console.log(res))
+            .then(setListShow(false))
             .catch(err => console.log(err))
     };
 
@@ -110,13 +114,14 @@ function Friend() {
                 <Button variant="warning" type="submit" value="Submit">
                     Search
                 </Button>
-                <List
-                    listShow={listShow}
-                    name={searchName}
-                    avatar={searchAva}
-                    email={searchNewEmail}
-                    addFunc={addFriendClick}
-                />
+                <ul className="infoDiv" style={{ display: listShow ? "block" : "none" }}>
+                    <li className="row">
+                        <img className="col-md-2" src={searchAva} alt={searchName} />
+                        <p className="col-md-2">{searchName}</p>
+                        <p className="col-md-6">{searchNewEmail}</p>
+                        <Button className="col-md-2" onClick={addFriendClick}>Add</Button>
+                    </li>
+                </ul>
             </Form>
         </div>
     )

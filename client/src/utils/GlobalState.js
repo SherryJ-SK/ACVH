@@ -36,8 +36,9 @@ const reducer = (state, action) => {
                 {
                     id: state.length * Math.random(),
                     db_ID: action.db_ID,
+                    name: action.name,
                     email: action.email,
-                    logIn: false,
+                    avatar: action.avatar,
                 }
             ];
         case updateUser:

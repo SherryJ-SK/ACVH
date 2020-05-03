@@ -3,7 +3,7 @@ import "../styles/Mainsection.css";
 
 function Mainsection(props) {
     return (
-        <div id="mainSection" className="row">{props.children}
+        <div id="mainSection">{props.children}
         </div>
     );
 };

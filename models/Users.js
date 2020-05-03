@@ -17,7 +17,23 @@ const friendSchema = new Schema({
 });
 
 const driftBottleSchema = new Schema({
+    senderId: {
+        type: String
+    },
     context: {
+        type: String
+    },
+    receiverId: {
+        type: String
+    },
+    date: {
+        type: Date,
+        default: Date.now
+    }
+});
+
+const favoCharaSchema = new Schema({
+    charaName: {
         type: String
     }
 });
@@ -41,7 +57,7 @@ const UserSchema = new Schema({
         type: Date,
         default: Date.now
     },
-    favoChara: [],
+    favoChara: [favoCharaSchema],
     friends: [friendSchema],
     driftBottle: [driftBottleSchema]
 },

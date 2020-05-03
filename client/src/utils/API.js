@@ -13,9 +13,7 @@ const API = {
   }),
   allVillager: function () {
     for (var i = 0; i < 6; i++) {
-      // console.log(villagerName);
       var villagerName = villagerList[i].title;
-      // console.log(villagerName);
       this.getVillager(villagerName)
         .then(res => this.vArray.push(res.data))
     }
@@ -24,8 +22,7 @@ const API = {
     return axios.get(villagerURL + villagerName + "/?api_key=" + api_key);
   },
   getPromise: function () {
-    console.log("line 26" + JSON.stringify(Promise.all([this.vArray])));
-    return Promise.all([this.vArray]);
+    return Promise.allSettled([this.vArray]);
   },
   getEvent: function () {
     return axios.get(eventURL + api_key);
@@ -42,5 +39,5 @@ const API = {
 };
 console.log(API.getPromise());
 console.log(API.allVillager());
-console.log(API.vArray);
+// console.log(API.vArray);
 export default API;

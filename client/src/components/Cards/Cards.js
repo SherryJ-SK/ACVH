@@ -4,7 +4,6 @@ import "../styles/Card.css";
 import { FaHeart } from "react-icons/fa";
 
 function Cards(props) {
-
     return (
         <Card>
             <Card.Img variant="top" src={props.image} className="card-img-top" alt={props.name} />
@@ -15,7 +14,11 @@ function Cards(props) {
                     <i className="fa fa-venus"></i></Card.Text>
                 <Card.Text className="card-text">Species: {props.species}</Card.Text>
                 <Card.Text className="card-text">DOB: {props.bd}</Card.Text>
-                <button type="button" className="likeBtn">
+                <button
+                    type="button"
+                    className="likeBtn"
+                    // onClick={() => { props.addFavoFunc(props.alt) }}
+                >
                     <FaHeart />
                 </button>
             </Card.Body>

@@ -22,6 +22,7 @@ function UserInfo() {
 
     const userInfo =
         avatarJSON.map(ava => {
+            // console.log({ ava })
             return (
                 < UserAvatar
                     key={ava.data_id}

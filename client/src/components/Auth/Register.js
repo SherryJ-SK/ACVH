@@ -6,13 +6,19 @@ import "../styles/Login.css";
 import { Form, Button } from "react-bootstrap";
 import API from "../../utils/API";
 import { useStoreContext } from "../../utils/GlobalState";
-import { signedIn } from "../../utils/actions";
+import UserAvatar from "../UserAvatar/UserAvatar";
+import avatarJSON from "../../utils/avatar.json";
+import { loggedIn } from "../../utils/actions";
 
 function Register() {
     const history = useHistory();
     const [state, dispatch] = useStoreContext();
+    const [userUpdate, setUserUpdate] = useState(true);
     const [useremail, setUseremail] = useState();
+    const [userId, setUserId] = useState();
     const [password, setPassword] = useState();
+    const [userName, setUserName] = useState();
+    const [selectedAva, setSeletedAva] = useState();
 
     // user submit login info
     const handleSubmit = event => {
@@ -36,14 +42,8 @@ function Register() {
                         password: password
                     })
                         .then(res => {
-                            // console.log(res.data.sucess)
-                            dispatch({
-                                type: signedIn,
-                                db_ID: res.data.sucess,
-                                email: email,
-                            });
-                            history.push("/update")
-                            // history.push("/update/" + res.data.sucess)
+                            setUserUpdate(false)
+                            setUserId(res.data.sucess)
                         })
                         .catch(err => console.log(err))
                 } else if (res.data.email === email)
@@ -52,49 +52,134 @@ function Register() {
             .catch(err => console.log(err))
     };
 
-    console.log("register line 55");
+    // user information update
+    const handleSelection = value => e => {
+        console.log(value);
+        setSeletedAva(value);
+    };
+
+    // get images from JSON file and display in component
+    const userInfo =
+        avatarJSON.map(ava => {
+            // console.log({ ava })
+            return (
+                < UserAvatar
+                    key={ava.data_id}
+                    number={ava.data_id}
+                    image={ava.imageSrc}
+                    name={ava.imageAlt}
+                    foundId={handleSelection(ava.imageSrc)}
+                />
+            )
+        });
+
+    // store updated information to the userId registered
+    function handleUpdate(event) {
+        event.preventDefault();
+        if (!userName && !selectedAva) {
+            alert("Please enter name and choose an avatar")
+        } else if (!userName) {
+            alert("Please enter name")
+        } else if (!selectedAva) {
+            alert("Please choose an avatar")
+        } else {
+            // console.log(userName);
+            // console.log(selectedAva);
+            // console.log(userId);
+            API.updateUser(userId,
+                {
+                    "$set":
+                    {
+                        "name": userName,
+                        "avatar": selectedAva
+                    }
+                })
+                .then(res => console.log(res.data))
+                .then(() => {
+                    dispatch({
+                        type: loggedIn,
+                        db_ID: userId,
+                        name: userName,
+                        email: useremail,
+                        avatar: selectedAva,
+                    });
+                    history.push("/home/" + userId);
+                })
+                .catch(err => console.log(err))
+        }
+    };
 
     return (
-        <div id="loginSection" className="row">
-            <div className="col-md-6">
-                <img className="tommyImage" src="assets/images/Timmy_&_Tommy_NH.png" alt="loginNook"></img>
-            </div>
-            <div className="col-md-2 loginFormSection">
-                <h4>Register</h4>
-                <br />
-                <Form id="loginForm" onSubmit={handleSubmit}>
-                    <Form.Label>Email:</Form.Label><br />
-                    <Form.Control
-                        type="text"
-                        id="email"
-                        placeholder="Email"
-                        onChange={event => setUseremail(event.target.value)}
-                    />
-                    <Form.Label>Password:</Form.Label><br />
-                    <Form.Control
-                        type="password"
-                        id="password"
-                        placeholder="Password"
-                        onChange={event => setPassword(event.target.value)}
-                    />
+        <div>
+            {userUpdate ? (<div id="loginSection" className="row">
+                <div className="col-md-6">
+                    <img className="tommyImage" src="assets/images/Timmy_&_Tommy_NH.png" alt="loginNook"></img>
+                </div>
+                <div className="col-md-2 loginFormSection">
+                    <h4>Register</h4>
                     <br />
-                    <Button
-                        variant="warning"
-                        type="submit"
-                        value="Submit"
-                        id="btn"
-                    >
-                        Submit
+                    <Form id="loginForm" onSubmit={handleSubmit}>
+                        <Form.Label>Email:</Form.Label><br />
+                        <Form.Control
+                            type="text"
+                            id="email"
+                            placeholder="Email"
+                            onChange={event => setUseremail(event.target.value)}
+                        />
+                        <Form.Label>Password:</Form.Label><br />
+                        <Form.Control
+                            type="password"
+                            id="password"
+                            placeholder="Password"
+                            onChange={event => setPassword(event.target.value)}
+                        />
+                        <br />
+                        <Button
+                            variant="warning"
+                            type="submit"
+                            value="Submit"
+                            id="btn"
+                        >
+                            Submit
                     </Button>
-                </Form>
-                <hr />
-                <p>Already signed in?
+                    </Form>
+                    <hr />
+                    <p>Already signed in?
                     <br />
-                    <Link to="/login">
-                        Login here
+                        <Link to="/login">
+                            Login here
                     </Link>
-                </p>
-            </div>
+                    </p>
+                </div>
+            </div>) : (
+                    <div id="newUserForm" >
+                        <Form onSubmit={handleUpdate}>
+                            <h3>Villager Basic Information</h3>
+                            <p>Hello {userName}</p>
+                            <Form.Group controlId="username">
+                                <Form.Label>Name</Form.Label>
+                                <Form.Control
+                                    type="text"
+                                    placeholder="Enter Name"
+                                    onChange={event => setUserName(event.target.value)}
+                                    name="name"
+                                />
+                            </Form.Group>
+                            <Form.Group controlId="avatar">
+                                <Form.Label>Avatar</Form.Label>
+                            </Form.Group>
+                            <Form.Group>
+                                {userInfo}
+                            </Form.Group>
+                            <Button
+                                variant="warning"
+                                type="submit"
+                            >
+                                Save</Button>
+                        </Form>
+                    </div >
+                )
+            }
         </div>
     )
 };

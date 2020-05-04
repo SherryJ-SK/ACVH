@@ -8,7 +8,7 @@ function UserAvatar(props) {
             src={props.image}
             alt={props.name}
             data-id={props.number}
-            onClick={() => { props.foundId(props.src) }}
+            onClick={() => { props.foundId(props.alt) }}
         ></img>
     )
 };

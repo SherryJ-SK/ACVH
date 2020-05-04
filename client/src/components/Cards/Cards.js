@@ -10,8 +10,7 @@ function Cards(props) {
             <Card.Body className="card-body">
                 <Card.Title className="card-title">{props.name}</Card.Title>
                 <hr />
-                <Card.Text className="card-text" id={props.gender}>{props.gender}
-                    <i className="fa fa-venus"></i></Card.Text>
+                <Card.Text className="card-text" id={props.gender}>{props.gender}</Card.Text>
                 <Card.Text className="card-text">Species: {props.species}</Card.Text>
                 <Card.Text className="card-text">DOB: {props.bd}</Card.Text>
                 <button

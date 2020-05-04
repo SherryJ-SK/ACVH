@@ -1,15 +1,13 @@
 import React, { useState, useEffect } from "react";
 import Cards from "../components/Cards/Cards";
-import { CardDeck } from "react-bootstrap";
+import { CardDeck, Card } from "react-bootstrap";
 import API from "../utils/API";
-import { STATES } from "mongoose";
 
 function Character() {
     const [villager, setVillager] = useState([]);
-    // var state = {
-    //     villagerList: villagerList,
-    //     found: []
-    // }
+    const [oneVill, setOneVill] = useState();
+    const [showCard, setShowCard] = useState(false);
+    const [cardContent, setCardContent] = useState();
 
     useEffect(() => {
         getVillager();
@@ -18,102 +16,78 @@ function Character() {
     function getVillager() {
         API.getPromise()
             .then(values => {
-                // console.log({values})
-                let status = values.status
-                // console.log({status})
-                console.log(values[0].value[0])
-                // console.log(values.value[0])
+                // console.log({ values })
+                setVillager(values[0].value)
             })
-            //     // JSON.stringify(values[0].name)
-            // )
-            // console.log(JSON.stringify(API.vArray))
-            // .then(values =>
-            //     console.log(values + "line 34"))
-            // API.getVillager()
-            // .then(res => {
-            //     // store into redux 
-            //     setVillager(res.data);
-            // })
             .catch(err => console.log(err));
     };
 
-    // const handleFavoClick = value => e => {
-    //     console.log(value);
-    // };
+    const displayVillager =
+        villager.map(vill => {
+            return (
+                <Cards
+                    key={vill.name}
+                    name={vill.name}
+                    image={vill.image}
+                    gender={vill.gender}
+                    species={vill.species}
+                    bd={vill.birthday}
+                />
+            )
+        });
 
-    // function addFavo() {
-    //     return (
-    //         <Cards
-    //             name={villager.name}
-    //             image={villager.image}
-    //             gender={villager.gender}
-    //             species={villager.species}
-    //             bd={villager.birthday}
-    //             addFavoFunc={handleFavoClick(villager.name)}
-    //         />
-    //     )
-    // };
+    function foundOneVill(event) {
+        event.preventDefault();
+        API.getVillager(oneVill)
+            .then(res => {
+                // console.log(res.data);
+                setCardContent(res.data);
+                setShowCard(true);
+            })
+            .catch(err => console.log(err))
+    }
 
     return (
-        <div id="character">
-            {/* {state.characters.length ? ( */}
-            <CardDeck >
-                <Cards
-                    name={villager.name}
-                    image={villager.image}
-                    gender={villager.gender}
-                    species={villager.species}
-                    bd={villager.birthday}
-                />
-                <Cards
-                    name={villager.name}
-                    image={villager.image}
-                    gender={villager.gender}
-                    species={villager.species}
-                    bd={villager.birthday}
-                />
-                <Cards
-                    name={villager.name}
-                    image={villager.image}
-                    gender={villager.gender}
-                    species={villager.species}
-                    bd={villager.birthday}
-                />
-                <Cards
-                    name={villager.name}
-                    image={villager.image}
-                    gender={villager.gender}
-                    species={villager.species}
-                    bd={villager.birthday}
-                />
-                <Cards
-                    name={villager.name}
-                    image={villager.image}
-                    gender={villager.gender}
-                    species={villager.species}
-                    bd={villager.birthday}
-                />
-                <Cards
-                    name={villager.name}
-                    image={villager.image}
-                    gender={villager.gender}
-                    species={villager.species}
-                    bd={villager.birthday}
-                />
-            </CardDeck>
-            {/* <CardDeck>
-                <Cards
-                    name={villager.name}
-                    image={villager.image}
-                    gender={villager.gender}
-                    species={villager.species}
-                    bd={villager.birthday}
-                />
-            </CardDeck> */}
-            {/* ) : (
-            <div>Loading...</div>
-            )} */}
-        </div>
+        <div>
+            <div id="character">
+                <CardDeck >
+                    {displayVillager}
+                </CardDeck>
+            </div>
+            <div>
+                <p>Check villager details</p>
+                <form>
+                    <input
+                        type="text"
+                        name="name"
+                        placeholder="Villager's Name"
+                        onChange={event => setOneVill(event.target.value)}
+                    ></input>
+                    <button
+                        onClick={foundOneVill}
+                    > Check </button>
+                </form>
+                {showCard ? (
+                    <div>
+                        <img id="singleCardImg" variant="top" src={cardContent.image} alt={cardContent.name}></img>
+                        <div>
+                            <p>{cardContent.name}</p>
+                            <p>{cardContent.gender}</p>
+                            <p>Species: {cardContent.species}</p>
+                            <p>DOB: {cardContent.birthday}({cardContent.sign})</p>
+                            <p>{cardContent.quote}</p>
+                            <p>Catchphrase: {cardContent.phrase}</p>
+                            <p>Siblings: {cardContent.siblings}</p>
+                            <p>Goal: {cardContent.goal}</p>
+                        </div>
+                    </div>
+                ) : (
+                        <div>
+                        </div>
+                    )}
+            </div>
+        </div >
+
     )
 };
 

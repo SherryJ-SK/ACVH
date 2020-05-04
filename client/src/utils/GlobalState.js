@@ -1,8 +1,6 @@
 import React, { createContext, useReducer, useContext } from "react";
 import {
     loggedIn,
-    signedIn,
-    updateUser,
 } from "./actions";
 
 const StoreContext = createContext({
@@ -30,29 +28,6 @@ const reducer = (state, action) => {
                     logIn: true,
                 }
             ];
-        case signedIn:
-            return [
-                ...state,
-                {
-                    id: state.length * Math.random(),
-                    db_ID: action.db_ID,
-                    name: action.name,
-                    email: action.email,
-                    avatar: action.avatar,
-                }
-            ];
-        case updateUser:
-            return [
-                ...state,
-                {
-                    friends: action.friends,
-                }
-            ];
-        // case GET_USER_ID:
-        //     return {
-        //         ...state,
-        //         userId: [action.user, ...state.getId]
-        //     };
         default:
             return state;
     }

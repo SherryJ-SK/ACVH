@@ -12,7 +12,10 @@ const API = {
     setTimeout(res, 100)
   }),
   allVillager: function () {
-    for (var i = 0; i < 6; i++) {
+    var min = 0;
+    var max = (villagerList.length - 1);
+    var randIndex = Math.floor(Math.random() * (max - min)) + min;
+    for (var i = randIndex; i < randIndex + 7; i++) {
       var villagerName = villagerList[i].title;
       this.getVillager(villagerName)
         .then(res => this.vArray.push(res.data))
@@ -37,7 +40,7 @@ const API = {
     return axios.get("/api/users/" + id)
   },
 };
-console.log(API.getPromise());
+// console.log(API.getPromise());
 console.log(API.allVillager());
 // console.log(API.vArray);
 export default API;

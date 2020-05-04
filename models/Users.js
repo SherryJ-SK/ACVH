@@ -2,6 +2,9 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const friendSchema = new Schema({
+    friendId: {
+        type: String
+    },
     friendName: {
         type: String,
         default: null
@@ -18,6 +21,9 @@ const friendSchema = new Schema({
 
 const driftBottleSchema = new Schema({
     senderId: {
+        type: String
+    },
+    senderName: {
         type: String
     },
     context: {

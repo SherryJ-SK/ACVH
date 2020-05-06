@@ -63,6 +63,44 @@ body, html {
 
 #friendForm {
     border: 6px dotted #A1D8D3;
+    width: 40rem;
+    border-radius: 2rem;
+    padding: 10px 8px 0 15px;
+    font-family: 'Nunito', sans-serif;
+    margin-bottom: 1rem;
+    background-color: rgb(216, 233, 231);
+}
+
+#messageContent {
+    border: 6px dotted #FEBA63;
+    border-radius: 2rem;
+    padding: 10px 8px 0 15px;
+    font-family: 'Nunito', sans-serif;
+    margin-bottom: 1rem;
+    background-color: rgb(216, 233, 231);
+    width: 40rem;
+    padding-bottom: 1rem;
+}
+
+#receiverList {
+    border: 6px dotted #5099BC;
+    border-radius: 2rem;
+    padding: 10px 8px 0 15px;
+    font-family: 'Nunito', sans-serif;
+    margin-bottom: 1rem;
+    background-color: rgb(216, 233, 231);
+    width: 40rem;
+    padding-bottom: 1rem;
+}
+
+.messageList {
+    background-color: #A1D8D3;
+    border-radius: 1rem;
+    padding: 1rem;
+}
+
+.messageText {
+    text-align: center;
 }
 
 .input-field>label {

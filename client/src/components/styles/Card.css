@@ -45,5 +45,23 @@
 }
 
 #searchVillager {
+    border-radius: 2rem;
+    padding: 10px 8px 0 15px;
+    font-family: 'Nunito', sans-serif;
+    background-color: rgb(216, 233, 231);
     border: 6px dotted #A1D8D3;
+    margin-bottom: 0;
+}
+
+#singleCardImg {
+    width: 9rem;
+    margin-left: -8rem;
+}
+
+#searchVform {
+    width: 15rem;
+}
+
+#singleVinfo {
+    width: 84%;
 }

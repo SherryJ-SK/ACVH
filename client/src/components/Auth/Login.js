@@ -35,6 +35,7 @@ function Login() {
                 if (res.data.email !== email) {
                     alert("Please register as a new user")
                 } else if (res.data.email === email) {
+                    // console.log("login line 38");
                     axios.post("/api/auth/register_login", {
                         email: email,
                         password: password

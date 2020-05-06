@@ -7,8 +7,6 @@ function DriftBottle() {
     //sender part form
     // get sender ID, receiver email and message --> update to receiver's DB
     const id = state.map((item) => { return item.db_ID });
-    const [receiverEmail, setReceiverEmail] = useState();
-    const [textContent, setTextContent] = useState();
     const [messageList, setMessageList] = useState([]);
 
     useEffect(() => {
@@ -40,11 +38,18 @@ function DriftBottle() {
     const displayMessage =
         messageList.map(message => {
             return (
-                <li key={message.senderId}>
-                    <p>Sender: {message.senderName}</p>
-                    <p>{message.context}</p>
-                    <p>{message.date}</p>
+                <li
+                    className="messageList"
+                    key={message.senderId}>
+                    <p
+                        style={{ "font-size": "1.1rem" }}
+                    >From: {message.senderName}</p>
+                    <p
+                        className="messageText"
+                    >{message.context}</p>
+                    {/* <p>{message.date}</p> */}
                     <button
+                        className="btn waves-effect waves-light amber darken-1"
                         onClick={handleDel}
                     >X</button>
                 </li>
@@ -54,8 +59,9 @@ function DriftBottle() {
 
     return (
         <div id="driftBottle">
-            <div id="receiverList" className="col-md-6">
-                <p>Message List</p>
+            <div id="receiverList">
+                <h5>Message List</h5>
+                <hr />
                 <ul>
                     {displayMessage}
                 </ul>

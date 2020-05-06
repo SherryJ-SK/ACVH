@@ -54,34 +54,36 @@ function Character() {
                 {displayVillager}
                 {/* </CardDeck> */}
             </div>
-            <div className="infoDiv row" id="searchVillager">
-                <form className="col s12 m4">
+            <div className="row" id="searchVillager">
+                <form className="col s12 m2">
                     <input
                         type="text"
                         name="name"
+                        id="searchVform"
                         placeholder="Check villager details"
                         onChange={event => setOneVill(event.target.value)}
                     ></input>
                     <button
+                        className="btn waves-effect waves-light amber darken-1"
                         onClick={foundOneVill}
                     > Check </button>
                 </form>
                 {showCard ? (
-                    <div className="col s12 m8">
-                        <img id="singleCardImg" variant="top" src={cardContent.image} alt={cardContent.name}></img>
-                        <div>
-                            <p>{cardContent.name}</p>
-                            <p>{cardContent.gender}</p>
+                    <div className="col s12 m10">
+                        <img className="col s12 m4" id="singleCardImg" variant="top" src={cardContent.image} alt={cardContent.name}></img>
+                        <div className="col s12 m6" id="singleVinfo">
+                            <p>Name: {cardContent.name}</p>
+                            <p>Gender: {cardContent.gender}</p>
                             <p>Species: {cardContent.species}</p>
                             <p>DOB: {cardContent.birthday}({cardContent.sign})</p>
                             <p>{cardContent.quote}</p>
                             <p>Catchphrase: {cardContent.phrase}</p>
-                            <p>Siblings: {cardContent.siblings}</p>
+                            {/* <p>Siblings: {cardContent.siblings}</p> */}
                             <p>Goal: {cardContent.goal}</p>
                         </div>
                     </div>
                 ) : (
-                        <div>
+                        <div className="col s12 m10">
                         </div>
                     )}
             </div>

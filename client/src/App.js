@@ -3,7 +3,7 @@ import Header from "./components/Header/Header";
 import Sidebar from "./components/Sidebar/Sidebar";
 import Mainsection from "./components/Mainsection/Mainsection";
 import Wrapper from "./components/Container/Wrapper";
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom';
 import Characters from "./pages/Characters";
 import Main from "./pages/Main";
 import Friend from "./pages/Friend";
@@ -22,6 +22,7 @@ function App() {
     return (
         <Router>
             <Wrapper>
+                <Redirect exact from="/" to="login" />
                 <Route exact path="/login" component={Login} />
                 <Route exact path="/register" component={Register} />
                 {/* <Route exact path="/update" component={UserInfo} /> */}
@@ -42,7 +43,7 @@ function App() {
                     </div>
 
                 ) : (
-                    <div></div>
+                        <div></div>
                         // <NoMatch />
                     )}
             </Wrapper>

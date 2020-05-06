@@ -37,6 +37,7 @@ function Register() {
         API.getUser(email)
             .then(res => {
                 if (res.data == null) {
+                    // console.log("register line 40");
                     axios.post("/api/auth/register_login", {
                         email: email,
                         password: password
@@ -168,9 +169,9 @@ function Register() {
             </div>) : (
                     <div id="newUserForm" >
                         <form onSubmit={handleUpdate}>
-                            <h3>Villager Basic Information</h3>
+                            <h4>Villager Basic Information</h4>
                             <p>Hello {userName}</p>
-                            <div controlId="username">
+                            <div controlid="username">
                                 {/* <Form.Label>Name</Form.Label> */}
                                 <input
                                     type="text"

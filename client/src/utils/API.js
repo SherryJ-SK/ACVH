@@ -15,7 +15,7 @@ const API = {
     var min = 0;
     var max = (villagerList.length - 1);
     var randIndex = Math.floor(Math.random() * (max - min)) + min;
-    for (var i = randIndex; i < randIndex + 7; i++) {
+    for (var i = randIndex; i < randIndex + 5; i++) {
       var villagerName = villagerList[i].title;
       this.getVillager(villagerName)
         .then(res => this.vArray.push(res.data))

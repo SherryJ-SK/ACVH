@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "../styles/Login.css";
-import { Form, Button } from "react-bootstrap";
+// import { Form, Button } from "react-bootstrap";
 import API from "../../utils/API";
 import axios from "axios";
 import { useHistory } from "react-router-dom";
@@ -47,7 +47,7 @@ function Login() {
                                 name: nameDB,
                                 email: email,
                                 avatar: avatar,
-                            });            
+                            });
                             history.push("/home/" + res.data.sucess);
                         })
                         .catch(err => console.log(err))
@@ -58,37 +58,50 @@ function Login() {
 
     return (
         <div id="loginSection" className="row">
-            <div className="col-md-6">
+            <div>
                 <img className="nookImage" src="assets/images/nook4.png" alt="loginNook"></img>
             </div>
-            <div className="col-md-2 loginFormSection">
+            <div className="loginFormSection">
                 <h4>Login</h4>
                 <br />
-                <Form id="loginForm" onSubmit={handleSubmit}>
-                    <Form.Label>Email:</Form.Label><br />
-                    <Form.Control
+                <form id="loginForm" onSubmit={handleSubmit}>
+                    {/* <Form.Label>Email:</Form.Label><br /> */}
+                    {/* <Form.Control
                         type="text"
                         id="email"
                         placeholder="Email"
                         onChange={event => setUseremail(event.target.value)}
-                    />
-                    <Form.Label>Password:</Form.Label><br />
-                    <Form.Control
+                    /> */}
+                    {/* <Form.Label>Password:</Form.Label><br /> */}
+                    {/* <Form.Control
                         type="password"
                         id="password"
                         placeholder="Password"
                         onChange={event => setPassword(event.target.value)}
-                    />
+                    /> */}
+                    <div className="input-field">
+                        <input id="email" type="email" className="validate"
+                            onChange={event => setUseremail(event.target.value)}
+                        />
+                        <label htmlFor="email">Email</label>
+                    </div>
+                    <div className="input-field">
+                        <input id="password" type="password" className="validate"
+                            onChange={event => setPassword(event.target.value)}
+                        />
+                        <label htmlFor="password">Password</label>
+                    </div>
                     <br />
-                    <Button
-                        variant="warning"
+                    <button
+                        className="btn waves-effect waves-light amber darken-1"
                         type="submit"
+                        name="action"
                         value="Submit"
                         id="btn"
                     >
                         Submit
-                    </Button>
-                </Form>
+                    </button>
+                </form>
                 <hr />
                 <p>Haven't register yet?
                     <br />

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Cards from "../components/Cards/Cards";
-import { CardDeck, Card } from "react-bootstrap";
+// import { CardDeck, Card } from "react-bootstrap";
 import API from "../utils/API";
 
 function Character() {
@@ -49,18 +49,17 @@ function Character() {
 
     return (
         <div>
-            <div id="character">
-                <CardDeck >
-                    {displayVillager}
-                </CardDeck>
+            <div id="character" className="row">
+                {/* <CardDeck > */}
+                {displayVillager}
+                {/* </CardDeck> */}
             </div>
-            <div>
-                <p>Check villager details</p>
-                <form>
+            <div className="infoDiv row" id="searchVillager">
+                <form className="col s12 m4">
                     <input
                         type="text"
                         name="name"
-                        placeholder="Villager's Name"
+                        placeholder="Check villager details"
                         onChange={event => setOneVill(event.target.value)}
                     ></input>
                     <button
@@ -68,7 +67,7 @@ function Character() {
                     > Check </button>
                 </form>
                 {showCard ? (
-                    <div>
+                    <div className="col s12 m8">
                         <img id="singleCardImg" variant="top" src={cardContent.image} alt={cardContent.name}></img>
                         <div>
                             <p>{cardContent.name}</p>

@@ -4,20 +4,28 @@
 
 .nookImage {
     width: 600px;
-    margin: 10rem 18rem;
+    margin-top: 20%;
+    margin-left: 10%;
 }
 
 .loginFormSection {
-    margin-top: 17rem;
-    margin-left: -4rem;
+    margin-top: 12rem;
+    /* margin-left: -4rem; */
     background-color: #80C687;
-    margin-bottom: 18rem;
+    margin-bottom: 5rem;
     padding: 2rem;
     border-radius: 1rem;
     border: dashed #FEBA63 8px;
+    min-width: 23rem;
+    max-width: 23rem;
 }
 
 .tommyImage {
-    width: 500px;
-    margin: 18rem 18rem;
+    width: 600px;
+    margin-top: 50%;
+    padding: 10%;
+}
+
+.validate {
+    border-radius: 1rem !important;
 }

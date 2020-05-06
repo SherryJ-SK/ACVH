@@ -9,7 +9,7 @@ import Main from "./pages/Main";
 import Friend from "./pages/Friend";
 import Login from "./components/Auth/Login";
 import Register from "./components/Auth/Register";
-import UserInfo from "./components/UserInfo/UserInfo";
+// import UserInfo from "./components/UserInfo/UserInfo";
 import NoMatch from "./pages/NoMatch";
 import { useStoreContext } from "./utils/GlobalState";
 import DriftBottle from "./pages/DriftBottle";
@@ -24,7 +24,7 @@ function App() {
             <Wrapper>
                 <Route exact path="/login" component={Login} />
                 <Route exact path="/register" component={Register} />
-                <Route exact path="/update" component={UserInfo} />
+                {/* <Route exact path="/update" component={UserInfo} /> */}
                 {/* {renderComp} */}
                 {state.length ? (
                     <div>
@@ -42,7 +42,8 @@ function App() {
                     </div>
 
                 ) : (
-                        <NoMatch />
+                    <div></div>
+                        // <NoMatch />
                     )}
             </Wrapper>
         </Router >

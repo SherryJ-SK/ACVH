@@ -13,11 +13,12 @@
 }
 
 body, html {
-    height: 100%;
-    margin: 0;
+    background-attachment: fixed;
+    background-size: 100% 100%;
+    background-image: url(../images/background1.jpg);
 }
 
-.wrapper {
+/* .container {
     background-image: url(../images/background1.jpg);
     min-height: 100%;
     min-width: 1024px;
@@ -26,6 +27,12 @@ body, html {
     left: 0;
     width: 100%;
     height: auto;
+} */
+
+.container {
+    margin: 0;
+    padding: 0;
+    max-width: 1480px;
 }
 
 .infoDiv {
@@ -58,3 +65,13 @@ body, html {
     border: 6px dotted #A1D8D3;
 }
 
+.input-field>label {
+    color: #285960
+}
+
+@media only screen and (min-width: 993px){
+    .container {
+        width: 100%;
+    }
+
+}

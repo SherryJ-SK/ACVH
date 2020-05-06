@@ -38,13 +38,13 @@ function Sidebar() {
                     )
                 })}
                 <ul className="list-unstyled components">
-                    <li className="active ribbon">
-                        <Link to={"/home/" + id}>
+                    <li className="ribbon">
+                        <Link className="sidebarLink" to={"/home/" + id}>
                             Home
                             </Link>
                     </li>
-                    <li className="active ribbon">
-                        <Link to={"/characters/" + id}>
+                    <li className="ribbon">
+                        <Link className="sidebarLink" to={"/characters/" + id}>
                             Characters
                             </Link>
                     </li>
@@ -59,7 +59,7 @@ function Sidebar() {
                             </Link>
                     </li> */}
                     <li className="ribbon">
-                        <Link to={"/friends/" + id}>
+                        <Link className="sidebarLink" to={"/friends/" + id}>
                             My Friends
                             </Link>
                     </li>

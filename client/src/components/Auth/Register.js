@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import { useHistory } from "react-router-dom";
 import "../styles/Login.css";
-import { Form, Button } from "react-bootstrap";
+// import { Form, Button } from "react-bootstrap";
 import API from "../../utils/API";
 import { useStoreContext } from "../../utils/GlobalState";
 import UserAvatar from "../UserAvatar/UserAvatar";
@@ -112,14 +112,14 @@ function Register() {
     return (
         <div>
             {userUpdate ? (<div id="loginSection" className="row">
-                <div className="col-md-6">
+                <div>
                     <img className="tommyImage" src="assets/images/Timmy_&_Tommy_NH.png" alt="loginNook"></img>
                 </div>
-                <div className="col-md-2 loginFormSection">
+                <div className="loginFormSection">
                     <h4>Register</h4>
                     <br />
-                    <Form id="loginForm" onSubmit={handleSubmit}>
-                        <Form.Label>Email:</Form.Label><br />
+                    <form id="loginForm" onSubmit={handleSubmit}>
+                        {/* <Form.Label>Email:</Form.Label><br />
                         <Form.Control
                             type="text"
                             id="email"
@@ -132,51 +132,67 @@ function Register() {
                             id="password"
                             placeholder="Password"
                             onChange={event => setPassword(event.target.value)}
-                        />
+                        /> */}
+                        <div className="input-field">
+                            <input id="email" type="email" className="validate"
+                                onChange={event => setUseremail(event.target.value)}
+                            />
+                            <label htmlFor="email">Email</label>
+                        </div>
+                        <div className="input-field">
+                            <input id="password" type="password" className="validate"
+                                onChange={event => setPassword(event.target.value)}
+                            />
+                            <label htmlFor="password">Password</label>
+                        </div>
                         <br />
-                        <Button
+                        <button
+                            className="btn waves-effect waves-light amber darken-1"
                             variant="warning"
                             type="submit"
+                            name="action"
                             value="Submit"
                             id="btn"
                         >
                             Submit
-                    </Button>
-                    </Form>
+                        </button>
+                    </form>
                     <hr />
                     <p>Already signed in?
-                    <br />
+                        <br />
                         <Link to="/login">
                             Login here
-                    </Link>
+                        </Link>
                     </p>
                 </div>
             </div>) : (
                     <div id="newUserForm" >
-                        <Form onSubmit={handleUpdate}>
+                        <form onSubmit={handleUpdate}>
                             <h3>Villager Basic Information</h3>
                             <p>Hello {userName}</p>
-                            <Form.Group controlId="username">
-                                <Form.Label>Name</Form.Label>
-                                <Form.Control
+                            <div controlId="username">
+                                {/* <Form.Label>Name</Form.Label> */}
+                                <input
                                     type="text"
                                     placeholder="Enter Name"
                                     onChange={event => setUserName(event.target.value)}
                                     name="name"
                                 />
-                            </Form.Group>
-                            <Form.Group controlId="avatar">
-                                <Form.Label>Avatar</Form.Label>
-                            </Form.Group>
-                            <Form.Group>
+                            </div>
+                            <div controlId="avatar">
+                                <label>Avatar</label>
+                            </div>
+                            <div>
                                 {userInfo}
-                            </Form.Group>
-                            <Button
+                            </div>
+                            <button
                                 variant="warning"
+                                className="btn waves-effect waves-light amber lighten-1"
                                 type="submit"
                             >
-                                Save</Button>
-                        </Form>
+                                Save
+                            </button>
+                        </form>
                     </div >
                 )
             }

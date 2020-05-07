@@ -61,7 +61,7 @@ function SearchFriend() {
         <div>
             <form id="friendForm" className="infoDiv" onSubmit={checkEmailSubmit}>
                 <h5>
-                    Search a new villiager
+                    Search a new friend
             </h5>
                 {/* <Form.Group> */}
                 <input

@@ -11,8 +11,8 @@ function Header() {
     // var toastHTML = '<span>Do you want to log out?</span><button class="btn-flat toast-action">Yes</button>';
     function handleLogOut() {
         // M.toast({ html: toastHTML })
-        window.location.reload(false);
         history.push("/login");
+        window.location.reload(false);
     };
 
     return (

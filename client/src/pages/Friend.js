@@ -104,6 +104,7 @@ function Friend() {
                             className="btn waves-effect waves-light amber darken-1"
                             type="submit"
                             value="Submit"
+                            onClick={() => { setMessageSection(false) }}
                         >
                             Send</button>
                     </form>

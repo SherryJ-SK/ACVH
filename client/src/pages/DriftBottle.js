@@ -42,16 +42,16 @@ function DriftBottle() {
                     className="messageList"
                     key={message.senderId}>
                     <p
-                        style={{ "font-size": "1.1rem" }}
+                        style={{ "fontSize": "1.1rem" }}
                     >From: {message.senderName}</p>
                     <p
                         className="messageText"
                     >{message.context}</p>
                     {/* <p>{message.date}</p> */}
-                    <button
+                    {/* <button
                         className="btn waves-effect waves-light amber darken-1"
                         onClick={handleDel}
-                    >X</button>
+                    >X</button> */}
                 </li>
             )
         })

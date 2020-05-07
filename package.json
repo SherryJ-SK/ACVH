@@ -8,23 +8,24 @@
     "start:prod": "node server.js",
     "start:dev": "concurrently \"nodemon --ignore 'client/*'\" \"npm run client\"",
     "build": "cd client && npm run build",
-    "watch": "nodemon server.js",
     "client-install": "npm install --prefix client",
-    "server": "nodemon index.js",
     "client": "npm start --prefix client",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
-    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client"
+    "heroku-postbuild": "cd client && npm install && npm run build"
+  },
+  "engines": {
+    "node": "10.16.3",
+    "npm": "6.9.0"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/SherryJ-SK/ACVH.git"
+    "url": "git+https://github.com/SherryJ-SK/villagerHandbook.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/SherryJ-SK/ACVH/issues"
+    "url": "https://github.com/SherryJ-SK/villagerHandbook/issues"
   },
-  "homepage": "https://github.com/SherryJ-SK/ACVH#readme",
   "dependencies": {
     "axios": "^0.19.2",
     "bcryptjs": "^2.4.3",

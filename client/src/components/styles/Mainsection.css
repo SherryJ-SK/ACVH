@@ -3,3 +3,12 @@
     margin-left: 20rem;
     padding-right: 2rem;
 }
+
+@media only screen and (max-width: 414px){
+    #mainSection {
+        margin-top: -51rem;
+        margin-left: 9rem;
+        padding-right: 2rem;
+    }
+    
+}

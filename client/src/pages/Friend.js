@@ -1,16 +1,13 @@
 import React, { useState, useEffect } from "react";
 // import { Form, Button } from "react-bootstrap";
+import M from "materialize-css";
 import API from "../utils/API";
 import { useStoreContext } from "../utils/GlobalState";
 
 function Friend() {
-    const [searchNewEmail, setSearchNewEmail] = useState();
-    const [searchId, setSearchId] = useState();
-    const [searchName, setSearchName] = useState();
     const [textContent, setTextContent] = useState();
     const [friendExist, setFriendExist] = useState(false);
     const [friendList, setFriendList] = useState([]);
-    const [listShow, setListShow] = useState(false);
     const [receiverId, setReceiverId] = useState();
     const [receiverName, setReceiverName] = useState();
     const [messageSection, setMessageSection] = useState(false);
@@ -22,30 +19,6 @@ function Friend() {
     useEffect(() => {
         foundMyFriend()
     }, []);
-
-    function checkEmailSubmit(event) {
-        event.preventDefault();
-        if (!searchNewEmail) {
-            alert("Enter your friend's Email~")
-        } else {
-            searchEmail(searchNewEmail);
-        }
-    };
-
-    function searchEmail(email) {
-        API.getUser(email)
-            .then(res => {
-                // console.log(res);
-                if (res.data == null) {
-                    alert("No result")
-                } else {
-                    setListShow(true)
-                    setSearchName(res.data.name);
-                    setSearchId(res.data._id);
-                }
-            })
-            .catch(err => console.log(err))
-    };
 
     function foundMyFriend() {
         API.getUserId(id)
@@ -67,10 +40,10 @@ function Friend() {
             return (
                 <li className="row"
                     key={friend._id}>
-                    <p className="col s4 m2">{friend.friendName}</p>
-                    <p className="col s4 m8">{friend.friendEmail}</p>
+                    <p className="col s2">{friend.friendName}</p>
+                    <p className="col s8">{friend.friendEmail}</p>
                     <button
-                        className="col s4 m2 btn waves-effect waves-light amber darken-1"
+                        className="btn waves-effect waves-light amber darken-1"
                         onClick={() => {
                             setReceiverId(friend.friendId)
                             setReceiverName(friend.friendName)
@@ -80,29 +53,12 @@ function Friend() {
             )
         });
 
-    function addFriendClick() {
-        API.updateUser(id,
-            {
-                "$set":
-                {
-                    "friends":
-                    {
-                        "friendId": searchId,
-                        "friendName": searchName,
-                        "friendEmail": searchNewEmail,
-                    }
-                }
-            })
-            .then(res => console.log(res))
-            .then(setListShow(false))
-            .catch(err => console.log(err))
-    };
-
     // send message to friend
     function senderPart(event) {
         event.preventDefault();
         if (!textContent) {
-            alert("Please left some messages")
+            // alert("Please left some messages")
+            M.toast({ html: 'Please left some messages', classes: 'rounded' });
         } else {
             // console.log(receiverId);
             console.log(name[0]);
@@ -155,35 +111,6 @@ function Friend() {
                 ) : (
                     <div></div>
                 )}
-            <form id="friendForm" className="infoDiv" onSubmit={checkEmailSubmit}>
-                <h5>
-                    Search a new villiager
-                </h5>
-                {/* <Form.Group> */}
-                <input
-                    type="text"
-                    name="name"
-                    placeholder="Friend's email"
-                    onChange={event => setSearchNewEmail(event.target.value)} />
-                {/* </Form.Group> */}
-                <button
-                    className="btn waves-effect waves-light amber darken-1"
-                    variant="warning" type="submit" value="Submit">
-                    Search
-                </button>
-                <hr />
-                <ul className="infoDiv" style={{ display: listShow ? "block" : "none" }}>
-                    <li className="row">
-                        {/* <img className="col-md-2" src={searchAva} alt={searchName} /> */}
-                        <p className="col s4 m2">{searchName}</p>
-                        <p className="col s4 m8">{searchNewEmail}</p>
-                        <button
-                            id="friendAddbtn"
-                            className="col s4 m2 btn waves-effect waves-light amber darken-1"
-                            onClick={addFriendClick}>Add</button>
-                    </li>
-                </ul>
-            </form>
         </div>
     )
 };

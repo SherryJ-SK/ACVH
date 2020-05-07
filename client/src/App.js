@@ -13,35 +13,38 @@ import Register from "./components/Auth/Register";
 import NoMatch from "./pages/NoMatch";
 import { useStoreContext } from "./utils/GlobalState";
 import DriftBottle from "./pages/DriftBottle";
+import SearchFriend from "./pages/SearchFriend";
 
 function App() {
     const [state, dispatch] = useStoreContext();
 
     // const id = state.map((item) => { return item.db_ID });
-    console.log({ state });
+    // console.log({ state });
+
     return (
         <Router>
             <Wrapper>
-                <Redirect exact from="/" to="login" />
+                <Redirect exact from="/" to="/login" />
                 <Route exact path="/login" component={Login} />
                 <Route exact path="/register" component={Register} />
                 {/* <Route exact path="/update" component={UserInfo} /> */}
                 {/* {renderComp} */}
                 {state.length ? (
                     <div>
-                        {state.map((item) => (
-                            <div key={item.id}>
-                                <Header />
-                                <Sidebar />
-                                <Mainsection >
-                                    <Route exact path={"/home/" + item.db_ID} component={Main} />
-                                    <Route exact path={"/characters/" + item.db_ID} component={Characters} />
-                                    <Route exact path={"/friends/" + item.db_ID} component={Friend} />
-                                    <Route exact path={"/drift_bottle/" + item.db_ID} component={DriftBottle} />
-                                </Mainsection>
-                            </div>))}
+                        {/* {state.map((item) => (
+                            <div key={item.id}> */}
+                        <Header />
+                        <Sidebar />
+                        <Mainsection >
+                            {/* <Route exact path={"/home/" + item.db_ID} component={Main} /> */}
+                            <Route exact path={"/home/:id"} component={Main} />
+                            <Route exact path={"/characters/:id"} component={Characters} />
+                            <Route exact path={"/search_friend/:id"} component={SearchFriend} />
+                            <Route exact path={"/friends/:id"} component={Friend} />
+                            <Route exact path={"/drift_bottle/:id"} component={DriftBottle} />
+                        </Mainsection>
+                        {/* </div>))} */}
                     </div>
-
                 ) : (
                         <div></div>
                         // <NoMatch />

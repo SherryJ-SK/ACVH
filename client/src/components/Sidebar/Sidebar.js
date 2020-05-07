@@ -48,11 +48,11 @@ function Sidebar() {
                             Characters
                             </Link>
                     </li>
-                    {/* <li className="ribbon">
-                    <Link to="/memo">
-                        Memo
+                    <li className="ribbon">
+                        <Link className="sidebarLink" to={"/search_friend/" +id}>
+                            Search Friend
                             </Link>
-                </li> */}
+                    </li>
                     {/* <li className="ribbon">
                         <Link to={"/collention/" + id}>
                             My Collection

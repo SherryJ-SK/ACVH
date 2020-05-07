@@ -23,6 +23,15 @@
     z-index: -1;
 }
 
+.logoutSection {
+    padding-top: 3rem;
+    padding-right: 1rem;
+}
+
+#logoutImg {
+    width: 4rem;
+}
+
 .timeSection {
     padding-top: 1.5rem;
     font-size: 1.4rem;
@@ -30,4 +39,24 @@
 
 .row {
     margin-right: 0;
+}
+
+@media only screen and (max-width: 414px){
+    .container {
+        max-width: 100%;
+        width: 100%;
+    }
+
+    .headerName {
+        font-size: 1.9rem;
+        padding: 2rem 0 2.7rem 5rem !important;
+    }
+
+    .logoutSection {
+        padding-top: 1rem;
+    }
+
+    #logoutImg {
+        width: 3rem;
+    }
 }

@@ -4,6 +4,7 @@ import axios from "axios";
 import { useHistory } from "react-router-dom";
 import "../styles/Login.css";
 // import { Form, Button } from "react-bootstrap";
+import M from "materialize-css";
 import API from "../../utils/API";
 import { useStoreContext } from "../../utils/GlobalState";
 import UserAvatar from "../UserAvatar/UserAvatar";
@@ -24,9 +25,11 @@ function Register() {
     const handleSubmit = event => {
         event.preventDefault();
         if (!useremail) {
-            alert("Please enter your email address");
+            // alert("Please enter your email address");
+            M.toast({ html: 'Please enter your email address', classes: 'rounded' });
         } else if (!password) {
-            alert("Please enter password");
+            // alert("Please enter password");
+            M.toast({ html: 'Please enter password', classes: 'rounded' });
         } else {
             loginUser(useremail, password);
         };
@@ -48,7 +51,8 @@ function Register() {
                         })
                         .catch(err => console.log(err))
                 } else if (res.data.email === email)
-                    alert("This email has been used, please use another one")
+                    // alert("This email has been used, please use another one")
+                    M.toast({ html: 'This email has been used, please use another one', classes: 'rounded' });
             })
             .catch(err => console.log(err))
     };
@@ -56,6 +60,7 @@ function Register() {
     // user information update
     const handleSelection = value => e => {
         console.log(value);
+        M.toast({ html: 'You have seleted the avatar', classes: 'rounded' });
         setSeletedAva(value);
     };
 
@@ -78,11 +83,14 @@ function Register() {
     function handleUpdate(event) {
         event.preventDefault();
         if (!userName && !selectedAva) {
-            alert("Please enter name and choose an avatar")
+            M.toast({ html: 'Please enter name and choose an avatar', classes: 'rounded' });
+            // alert("Please enter name and choose an avatar")
         } else if (!userName) {
-            alert("Please enter name")
+            M.toast({ html: 'Please enter name', classes: 'rounded' });
+            // alert("Please enter name")
         } else if (!selectedAva) {
-            alert("Please choose an avatar")
+            M.toast({ html: 'Please choose an avatar', classes: 'rounded' });
+            // alert("Please choose an avatar")
         } else {
             // console.log(userName);
             // console.log(selectedAva);
@@ -180,7 +188,7 @@ function Register() {
                                     name="name"
                                 />
                             </div>
-                            <div controlId="avatar">
+                            <div controlid="avatar">
                                 <label>Avatar</label>
                             </div>
                             <div>

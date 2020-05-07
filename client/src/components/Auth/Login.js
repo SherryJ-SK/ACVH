@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "../styles/Login.css";
 // import { Form, Button } from "react-bootstrap";
+import M from "materialize-css";
 import API from "../../utils/API";
 import axios from "axios";
 import { useHistory } from "react-router-dom";
@@ -18,9 +19,11 @@ function Login() {
     const handleSubmit = event => {
         event.preventDefault();
         if (!useremail) {
-            alert("Please enter your email address");
+            // alert("Please enter your email address");
+            M.toast({html: 'Please enter your email address', classes: 'rounded'});
         } else if (!password) {
-            alert("Please enter password");
+            // alert("Please enter password");
+            M.toast({html: 'Please enter password', classes: 'rounded'});
         } else {
             loginUser(useremail, password)
         };
@@ -33,7 +36,8 @@ function Login() {
                 const avatar = res.data.avatar;
                 const nameDB = res.data.name;
                 if (res.data.email !== email) {
-                    alert("Please register as a new user")
+                    // alert("Please register as a new user");
+                    M.toast({html: 'Please register as a new user', classes: 'rounded'});
                 } else if (res.data.email === email) {
                     // console.log("login line 38");
                     axios.post("/api/auth/register_login", {

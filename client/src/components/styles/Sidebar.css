@@ -57,3 +57,21 @@ a:hover {
     font-size: 1.2rem;
 }
   
+@media only screen and (max-width: 414px){
+    #sidebar {
+        max-width: 95px;
+        min-width: 95px;
+        margin-top: -1.4rem;
+    }
+
+    .ribbon {
+        max-width: 95px;
+        padding: 0 8px;
+    }
+
+    .sidebarLink {
+        font-size: 0.9rem;
+        padding: 0;
+    }
+    
+}

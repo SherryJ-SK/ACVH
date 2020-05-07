@@ -65,3 +65,23 @@
 #singleVinfo {
     width: 84%;
 }
+
+@media only screen and (max-width: 414px){
+    .card-img-top {
+        margin-top: 1rem;
+        margin-left: 6rem;
+    }
+
+    #singleCardImg {
+        margin-top: 1rem;
+        margin-left: 0;
+    }
+
+    #singleVinfo {
+        width: 95%;
+    }
+
+    .cardDeck {
+        margin-bottom: 1rem;
+    }
+}

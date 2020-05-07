@@ -29,6 +29,10 @@ body, html {
     height: auto;
 } */
 
+.toast {
+    background-color: #285960;
+}
+
 .container {
     margin: 0;
     padding: 0;
@@ -107,9 +111,43 @@ body, html {
     color: #285960
 }
 
+a:hover {
+    background-color: 0;
+}
+
 @media only screen and (min-width: 993px){
     .container {
         width: 100%;
     }
+}
 
+@media only screen and (max-width: 414px){
+    #eventName {
+        padding-top: 0;
+        font-size: 1.2rem;
+    }
+
+    #eventPic {
+        max-width: 92px;
+    }    
+
+    #friendForm {
+        width: 18rem;
+    }
+
+    #messageContent {
+        width: 18rem;
+    }
+
+    #receiverList {
+        width: 18rem;
+    }
+
+    body, html {
+        background-size: 200% 100%;
+    }
+
+    .infoDiv {
+        margin-bottom: 2rem;
+    }
 }

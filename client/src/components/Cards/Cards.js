@@ -22,7 +22,7 @@ function Cards(props) {
         //         </button>
         //     </Card.Body>
         // </Card>
-        <div className="col s12 m6">
+        <div className="col s12 m6 cardDeck">
             <div className="card">
                 <div className="card-image">
                     <img className="card-img-top" src={props.image} alt={props.name} />

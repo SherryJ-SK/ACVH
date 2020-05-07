@@ -11,15 +11,15 @@ function DriftBottle() {
 
     useEffect(() => {
         searchEmail()
-    }, [])
+    })
 
     function searchEmail() {
         API.getUserId(id)
             .then(res => {
-                console.log(res.data.driftBottle);
+                // console.log(res.data.driftBottle);
                 const bottleArray = (res.data.driftBottle);
                 if (Array.isArray(bottleArray) && bottleArray.length) {
-                    console.log("have received message");
+                    // console.log("have received message");
                     setMessageList(bottleArray);
                 } else {
                     console.log("empty array");
@@ -30,10 +30,10 @@ function DriftBottle() {
 
     //receiver part list
     // get from the DB, if message render in the list, else NaN
-    function handleDel(event) {
-        event.preventDefault();
-        console.log("clicked");
-    };
+    // function handleDel(event) {
+    //     event.preventDefault();
+    //     console.log("clicked");
+    // };
 
     const displayMessage =
         messageList.map(message => {

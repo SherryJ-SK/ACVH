@@ -18,12 +18,12 @@ function Friend() {
 
     useEffect(() => {
         foundMyFriend()
-    }, []);
+    },[]);
 
     function foundMyFriend() {
         API.getUserId(id)
             .then(res => {
-                console.log(res.data.friends);
+                // console.log(res.data.friends);
                 const fArray = res.data.friends;
                 if (Array.isArray(fArray) && fArray.length) {
                     setFriendExist(true);
@@ -75,7 +75,10 @@ function Friend() {
                         }
                     }
                 })
-                .then(res => console.log(res.data))
+                .then(res => {
+                    console.log(res.data);
+                    setMessageSection(false);
+                })
                 .catch(err => console.log(err))
         }
     };
@@ -104,7 +107,6 @@ function Friend() {
                             className="btn waves-effect waves-light amber darken-1"
                             type="submit"
                             value="Submit"
-                            onClick={() => { setMessageSection(false) }}
                         >
                             Send</button>
                     </form>

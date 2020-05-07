@@ -1,16 +1,10 @@
 import React from "react";
-import M from "materialize-css";
 import { useHistory } from "react-router-dom";
-import { loggedIn } from "../../utils/actions";
-import { useStoreContext } from "../../utils/GlobalState";
 import "../styles/Header.css";
 
 function Header() {
     const history = useHistory();
-    const [state, dispatch] = useStoreContext();
-    // var toastHTML = '<span>Do you want to log out?</span><button class="btn-flat toast-action">Yes</button>';
     function handleLogOut() {
-        // M.toast({ html: toastHTML })
         history.push("/");
         window.location.reload(false);
     };

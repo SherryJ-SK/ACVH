@@ -13,7 +13,7 @@ function Sidebar() {
 
     useEffect(() => {
         getUserName();
-    }, []);
+    });
 
     function getUserName() {
         API.getUserId(id)

@@ -10,7 +10,7 @@ import Friend from "./pages/Friend";
 import Login from "./components/Auth/Login";
 import Register from "./components/Auth/Register";
 // import UserInfo from "./components/UserInfo/UserInfo";
-import NoMatch from "./pages/NoMatch";
+// import NoMatch from "./pages/NoMatch";
 import { useStoreContext } from "./utils/GlobalState";
 import DriftBottle from "./pages/DriftBottle";
 import SearchFriend from "./pages/SearchFriend";

@@ -27,7 +27,7 @@ app.use(bodyParser.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
-mongoose.connect(process.env.MONGODB_URI || "mongodb://127.0.0.1:27017/login", {
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/login", {
   useNewUrlParser: true,
   useUnifiedTopology: true,
   useFindAndModify: false

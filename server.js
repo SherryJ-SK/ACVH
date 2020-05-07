@@ -13,7 +13,7 @@ const routes = require("./routes");
 const PORT = process.env.PORT || 3001;
 
 const app = express();
-const connection = "mongodb+srv://new-user_502:xleK9k2U4qmQqCvC@cluster0-fqadw.mongodb.net/login?retryWrites=true&w=majority";
+// const connection = "mongodb+srv://new-user_502:xleK9k2U4qmQqCvC@cluster0-fqadw.mongodb.net/login?retryWrites=true&w=majority";
 
 app.use(
   bodyParser.urlencoded({
@@ -27,18 +27,17 @@ app.use(bodyParser.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
-// mongoose.connect(process.env.MONGODB_URI || "mongodb://127.0.0.1:27017/login", {
-//   useNewUrlParser: true,
-//   useUnifiedTopology: true,
-//   useFindAndModify: false
-// })
-// .then(() => console.log("Database Connected Successfully"))
-// .catch(err => console.log(err));
+mongoose.connect(process.env.MONGODB_URI || "mongodb://127.0.0.1:27017/login", {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+  useFindAndModify: false
+})
+.then(() => console.log("Database Connected Successfully"))
+.catch(err => console.log(err));
 
-
-mongoose.connect(connection, { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false })
-  .then(() => console.log("Database Connected Successfully"))
-  .catch(err => console.log(err));
+// mongoose.connect(connection, { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false })
+//   .then(() => console.log("Database Connected Successfully"))
+//   .catch(err => console.log(err));
 
 app.use(
   session({

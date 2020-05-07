@@ -4,7 +4,7 @@ const session = require("express-session");
 const MongoStore = require("connect-mongo")(session);
 // const path = require("path");
 const bodyParser = require("body-parser");
-const cors = require("cors");
+// const cors = require("cors");
 // const db = require("./models");
 
 const passport = require("./passport/setup");
@@ -21,7 +21,7 @@ app.use(
   })
 );
 
-app.use(cors());
+// app.use(cors());
 app.use(bodyParser.json());
 
 app.use(express.urlencoded({ extended: false }));

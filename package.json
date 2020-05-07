@@ -19,12 +19,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/SherryJ-SK/villagerHandbook.git"
+    "url": "git+https://github.com/SherryJ-SK/ACVH.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/SherryJ-SK/villagerHandbook/issues"
+    "url": "https://github.com/SherryJ-SK/ACVH/issues"
   },
   "dependencies": {
     "axios": "^0.19.2",

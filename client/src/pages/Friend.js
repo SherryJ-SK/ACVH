@@ -78,6 +78,7 @@ function Friend() {
                 .then(res => {
                     console.log(res.data);
                     setMessageSection(false);
+                    M.toast({ html: 'Your message has been sent', classes: 'rounded' });
                 })
                 .catch(err => console.log(err))
         }

@@ -27,6 +27,25 @@ function Main() {
 
     return (
         <div id="main">
+            <InfoDiv id="memo">
+                <h5>
+                    Welcome aboard! Here is some useful tips for new Villagers!
+                </h5>
+                <ul>
+                    <li>
+                        <span className="iconList" role="img" aria-label="bear">🐻</span>
+                        Charaters  : Here to check out charaters' information </li>
+                    <li>
+                        <span className="iconList" role="img" aria-label="mag">🔍</span>
+                        Search Friends  : Connect with your friend by searching their email addresses</li>
+                    <li>
+                        <span className="iconList" role="img" aria-label="two_women_holding_hands">👭</span>
+                        My Friends  : View your friend list and send them messages with love</li>
+                    <li>
+                        <span className="iconList" role="img" aria-label="love_letter">💌</span>
+                        Drift Bottle Icon  : See all the messages from your friends</li>
+                </ul>
+            </InfoDiv>
             <InfoDiv id="dailyEvent">
                 <p>{events}</p>
                 {singleEvent.map(event => {
@@ -37,18 +56,6 @@ function Main() {
                     return (<img key={img} className="col-md-4" id="eventPic" src={img} alt={img} />
                     )
                 })}
-            </InfoDiv>
-            <InfoDiv id="memo">
-                <p>
-                    Lorem ipsum dolor sit amet,
-                    consectetur adipisicing elit,
-                    sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
-                    nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
-                    in reprehenderit in voluptate velit esse cillum dolore eu fugiat
-                    nulla pariatur. Excepteur sint occaecat cupidatat non proident,
-                    sunt in culpa qui officia deserunt mollit anim id est laborum.
-                    </p>
             </InfoDiv>
         </div>
     )

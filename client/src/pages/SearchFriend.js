@@ -53,6 +53,7 @@ function SearchFriend() {
             .then(res => console.log(res))
             .then(() => {
                 setListShow(false);
+                M.toast({ html: 'New friend has been added', classes: 'rounded' });
             })
             .catch(err => console.log(err))
     };
@@ -76,17 +77,21 @@ function SearchFriend() {
                     Search
             </button>
                 <hr />
-                <ul className="infoDiv" style={{ display: listShow ? "block" : "none" }}>
-                    <li className="row">
-                        {/* <img className="col-md-2" src={searchAva} alt={searchName} /> */}
-                        <p className="col s2">{searchName}</p>
-                        <p className="col s8">{searchNewEmail}</p>
-                        <button
-                            id="friendAddbtn"
-                            className="btn waves-effect waves-light amber darken-1"
-                            onClick={addFriendClick}>Add</button>
-                    </li>
-                </ul>
+                {listShow ?
+                    (<ul className="infoDiv">
+                        <li className="row">
+                            {/* <img className="col-md-2" src={searchAva} alt={searchName} /> */}
+                            <p className="col s2">{searchName}</p>
+                            <p className="col s8">{searchNewEmail}</p>
+                            <button
+                                id="friendAddbtn"
+                                className="btn waves-effect waves-light amber darken-1"
+                                onClick={addFriendClick}>Add</button>
+                        </li>
+                    </ul>
+                    ) : (
+                        <div></div>
+                    )}
             </form>
         </div>
     )

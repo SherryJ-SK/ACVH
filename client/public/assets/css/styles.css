@@ -29,8 +29,12 @@ body, html {
     height: auto;
 } */
 
+.iconList {
+    padding-right: 1rem;
+}
+
 .toast {
-    background-color: #285960;
+    background-color: #FEBA63;
 }
 
 .container {

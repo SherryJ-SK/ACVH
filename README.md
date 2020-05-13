@@ -8,7 +8,7 @@ This application will allow user to search the characters in Animal Crossing, al
 
 ## Introduction
 - **Login/Signin** 
-![image](./client/public/assets/images/login.jpg)
+![image](./client/public/assets/images/login.jpg "width=500")
 Once the email and password have been entered, the information will be posted to the api route to verify.
 ![image](./client/public/assets/images/signin.jpg)
 ![image](./client/public/assets/images/updateInfo.jpg)

@@ -21,12 +21,15 @@ This application will allow user to search the characters in Animal Crossing, al
   - **Characters**
     - Users can check the characters' basic information, and the search section allows them to search the details for a specific characters
   <img src="./client/public/assets/images/characters.png" width=500>
+  
   - **Search Friend**
     - Users are able to search friends' email adresses and add them into the friend list
   <img src="./client/public/assets/images/searchFriend.png" width=500>
+  
   - **My Friends**
     - All the friends users have added will be showed on this page. Users also can send a message/greeting card through this page
   <img src="./client/public/assets/images/friendList.png" width=500>
+  
   - **Drift Bottle**
     - The drift bottle icon will direct users to the message list, which will display all the messages have been received from friends
   <img src="./client/public/assets/images/message.png" width=500>
